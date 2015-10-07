@@ -16,3 +16,24 @@
     mode: 0644
   tags:
     - archlinux
+
+- name: Disable other Login Managers service
+  sudo: yes
+  service:
+    name: "{{ item }}"
+    enabled: no
+  with_items:
+    - gdm
+    - kdm
+    - lightdm
+
+  tags:
+    - archlinux
+
+- name: Enable Slim service
+  sudo: yes
+  service:
+    name: slim
+    enabled: yes
+  tags:
+    - archlinux
