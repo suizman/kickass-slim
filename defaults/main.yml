@@ -1,0 +1,7 @@
+---
+### Base packages
+slim_base_pkg: slim
+
+### Extra packages
+slim_extra_pkg: true
+slim_themes_pkg: slim-themes

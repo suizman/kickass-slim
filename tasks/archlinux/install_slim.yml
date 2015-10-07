@@ -1,0 +1,20 @@
+---
+- name: Install base package Arch Linux
+  sudo: yes
+  pacman:
+    name: "{{ slim_base_pkg }}"
+    state: present
+    update_cache: yes
+  tags:
+    - archlinux
+
+- name: Install extra package Arch Linux
+  sudo: yes
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ slim_themes_pkg }}"
+  when: slim_extra_pkg == true
+  tags:
+    - archlinux

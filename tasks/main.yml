@@ -1,0 +1,8 @@
+---
+### Archlinux
+- name: Install Slim Arch Linux
+  include: archlinux/install_slim.yml
+
+### Common
+- name: Configure Common
+  include: common/configure_slim.yml
