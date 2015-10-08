@@ -5,3 +5,6 @@ slim_base_pkg: slim
 ### Extra packages
 slim_extra_pkg: true
 slim_themes_pkg: slim-themes
+
+### Xinitrc configurations
+slim_default_sesion: xfce
