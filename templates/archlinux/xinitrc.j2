@@ -1,27 +1,32 @@
-# The following variable defines the session which is started if the user doesn't explicitly select a session
-# Source: http://svn.berlios.de/svnroot/repos/slim/trunk/xinitrc.sample
+#!/bin/sh
 
-DEFAULT_SESSION={{ slim_default_sesion }}
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+#
+
+DEFAULT_SESSION={{ slim_default_sesion_command }}
 
 case $1 in
 kde)
-	exec startkde
-	;;
+        exec startkde
+        ;;
 xfce4)
-	exec startxfce4
-	;;
+        exec startxfce4
+        ;;
 icewm)
-	icewmbg &
-	icewmtray &
-	exec icewm
-	;;
+        icewmbg &
+        icewmtray &
+        exec icewm
+        ;;
 wmaker)
-	exec wmaker
-	;;
+        exec wmaker
+        ;;
 blackbox)
-	exec blackbox
-	;;
+        exec blackbox
+        ;;
 *)
-	exec $DEFAULT_SESSION
-	;;
+        exec $DEFAULT_SESSION
+        ;;
 esac
