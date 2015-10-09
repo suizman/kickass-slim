@@ -2,7 +2,7 @@
 - name: Copy XinitRC config file
   template:
     src: ../../templates/archlinux/xinitrc.j2
-    dest: "{{ lookup('env','HOME') }}/.xinitrc"
+    dest: "{{ ansible_env.HOME }}/.xinitrc"
     mode: 0644
   tags:
     - archlinux
