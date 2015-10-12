@@ -5,8 +5,7 @@
     name: "{{ slim_base_pkg }}"
     state: present
     update_cache: yes
-  tags:
-    - archlinux
+  when: ansible_os_family == "Archlinux"
 
 - name: Install extra package Arch Linux
   sudo: yes
@@ -15,6 +14,4 @@
     state: present
   with_items:
     - "{{ slim_themes_pkg }}"
-  when: slim_extra_pkg == true
-  tags:
-    - archlinux
+  when: slim_extra_pkg == true and ansible_os_family == "Archlinux"

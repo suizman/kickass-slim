@@ -1,11 +1,9 @@
 ---
 - name: Copy XinitRC config file
   template:
-    src: ../../templates/archlinux/xinitrc.j2
+    src: ../../templates/common/xinitrc.j2
     dest: "{{ ansible_env.HOME }}/.xinitrc"
     mode: 0644
-  tags:
-    - archlinux
 
 - name: Copy Slim config file
   sudo: yes
@@ -13,8 +11,6 @@
     src: ../../templates/common/slim.conf.j2
     dest: "/etc/slim.conf"
     mode: 0644
-  tags:
-    - archlinux
 
 - name: Disable other Login Managers service
   sudo: yes
@@ -26,13 +22,8 @@
     - kdm
     - lightdm
 
-  tags:
-    - archlinux
-
 - name: Enable Slim service
   sudo: yes
   service:
     name: slim
     enabled: yes
-  tags:
-    - archlinux
