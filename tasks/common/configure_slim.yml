@@ -17,8 +17,8 @@
   service:
     name: "{{ item }}"
     enabled: no
-  register: disable_other_wm_result
-  failed_when: "disable_other_wm_result|failed and 'no service' not in command_result.msg"
+  register: command_result
+  failed_when: "command_result|failed and 'no service' not in command_result.msg"
   with_items:
     - gdm
     - kdm
