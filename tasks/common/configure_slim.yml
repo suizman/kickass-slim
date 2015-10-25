@@ -17,6 +17,8 @@
   service:
     name: "{{ item }}"
     enabled: no
+  register: command_result
+  failed_when: "command_result|failed and 'no service' not in command_result.msg"
   with_items:
     - gdm
     - kdm
